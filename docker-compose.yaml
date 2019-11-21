@@ -11,11 +11,9 @@ services:
       - /usr/app/node_modules
     environment:
       NODE_ENV: development
-      HOST: '0.0.0.0'
-      PORT: '3001'
     ports:
       - '3001:3001'
-    entrypoint: ./scripts/development.sh
+    command: './node_modules/.bin/nuxt-ts -H 0.0.0.0 -p 3001'
 
   client.dev:
     tty: true
@@ -27,8 +25,6 @@ services:
       - /usr/app/node_modules
     environment:
       NODE_ENV: development
-      HOST: '0.0.0.0'
-      PORT: '3002'
     ports:
       - '3002:3002'
-    entrypoint: ./scripts/development.sh
+    command: './node_modules/.bin/nuxt-ts -H 0.0.0.0 -p 3002'
