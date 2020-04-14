@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  admin.dev:
+  admin:
+    container_name: admin
     tty: true
     build:
       context: ../admin-manager
-      dockerfile: Dev.Dockerfile
     volumes:
       - ../admin-manager/:/usr/app/
       - /usr/app/node_modules
@@ -15,11 +15,11 @@ services:
       - '3001:3001'
     command: './node_modules/.bin/nuxt-ts -H 0.0.0.0 -p 3001'
 
-  client.dev:
+  client:
+    container_name: client
     tty: true
     build:
       context: ../client-manager
-      dockerfile: Dev.Dockerfile
     volumes:
       - ../client-manager/:/usr/app/
       - /usr/app/node_modules
